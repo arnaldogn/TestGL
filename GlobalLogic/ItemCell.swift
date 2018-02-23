@@ -10,24 +10,24 @@ import UIKit
 import SDWebImage
 
 class ItemCell: UITableViewCell {
-    let thumbnail: UIImageView = {
+    private let thumbnail: UIImageView = {
         let thumbnail = UIImageView()
         thumbnail.clipsToBounds = true
         thumbnail.contentMode = .scaleAspectFill
         return thumbnail
     }()
-    let title: UILabel = {
+    private let title: UILabel = {
         let title = UILabel()
         title.font = UIFont.systemFont(ofSize: 15)
         return title
     }()
-    let details: UILabel = {
+    private let details: UILabel = {
         let details = UILabel()
         details.textColor = .gray
         details.font = UIFont.systemFont(ofSize: 13)
         return details
     }()
-    var separator: UIView = {
+    private let separator: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
@@ -41,13 +41,13 @@ class ItemCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    private func setupViews() {
         selectionStyle = .none
         contentView.addSubviewsForAutolayout(thumbnail, title, details, separator)
         setupConstraints()
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         let views: [String: Any] = ["thumbnail": thumbnail,
                                     "title": title,
                                     "details": details,

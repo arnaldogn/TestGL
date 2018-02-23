@@ -10,9 +10,9 @@ import UIKit
 import MBProgressHUD
 
 class MainViewController: UIViewController {
-    var itemList = [Item]()
-    let fetchService: FetchItemsServiceProtocol
-    let tableView: UITableView = {
+    private var itemList = [Item]()
+    private let fetchService: FetchItemsServiceProtocol
+    private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.tableFooterView = UIView()
         return tableView

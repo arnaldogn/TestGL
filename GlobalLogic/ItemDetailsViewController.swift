@@ -9,19 +9,19 @@
 import UIKit
 
 class ItemDetailsViewController: UIViewController {
-    var item: ItemDataModel
-    let itemImage: UIImageView = {
+    private var item: ItemDataModel
+    private let itemImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let title = UILabel()
         title.font = UIFont.systemFont(ofSize: 15)
         title.textAlignment = .center
         return title
     }()
-    let details: UILabel = {
+    private let details: UILabel = {
         let details = UILabel()
         details.textColor = .gray
         details.numberOfLines = 0
@@ -46,7 +46,7 @@ class ItemDetailsViewController: UIViewController {
         setupConstraints()
     }
 
-    func setupViews() {
+    private func setupViews() {
         edgesForExtendedLayout = []
         view.backgroundColor = .white
 
@@ -56,7 +56,7 @@ class ItemDetailsViewController: UIViewController {
         itemImage.sd_setImage(with: item.thumbnail, placeholderImage: UIImage(named: "UserPlaceholder"), completed: nil)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         let views: [String : Any] = ["itemImage": itemImage,
                                      "titleLabel": titleLabel,
                                      "details": details]
